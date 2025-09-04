@@ -4,8 +4,10 @@ FROM maven:3.8.5-openjdk-17 AS build
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the pom.xml and the project source code
+# Copy the pom.xml from the demo folder
 COPY pom.xml .
+
+# Copy the project source code from the demo folder
 COPY src ./src
 
 # Build the application and create the JAR file
@@ -18,6 +20,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file from the build stage
+# Note the path now includes 'demo' if your pom.xml defines it that way
 COPY --from=build /app/target/*.jar app.jar
 
 # Expose the port your app runs on (default for Spring Boot is 8080)
