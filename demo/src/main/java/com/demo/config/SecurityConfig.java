@@ -55,7 +55,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         // IMPORTANT: Allow your React app's origin
-        configuration.setAllowedOrigins(Arrays.asList("notes-gilt-two.vercel.app"));
+        configuration.setAllowedOrigins(Arrays.asList("https://notes-gilt-two.vercel.app"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
